@@ -1,30 +1,194 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
 }
+
 header {
-    background: #333;
+    background: linear-gradient(to right, #0066ff, #00ccff);
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: fadeInDown 1s ease-in-out;
+}
+
 nav a {
     color: #fff;
     margin: 0 15px;
     text-decoration: none;
+    font-size: 1.2em;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
 }
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+nav a:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ffcc00;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+
 section {
-    padding: 20px;
-    margin: 10px;
+    padding: 50px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0066ff;
+    position: relative;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+h2:after {
+    content: '';
+    width: 80px;
+    height: 3px;
+    background: #0066ff;
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+article h3 {
+    font-size: 1.5em;
+    color: #003366;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li strong {
+    color: #0066ff;
+}
+
+a {
+    color: #0066ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button#scroll-to-top, button#toggle-dark-mode {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0066ff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button#toggle-dark-mode {
+    bottom: 60px;
+}
+
+button#scroll-to-top:hover, button#toggle-dark-mode:hover {
+    background-color: #004db3;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
 footer {
-    background: #333;
+    background: #003366;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 20px;
+    position: relative;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+}
+
+body.dark-mode header {
+    background: linear-gradient(to right, #111, #333);
+}
+
+body.dark-mode footer {
+    background: #111;
 }
