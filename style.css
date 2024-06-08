@@ -170,4 +170,25 @@ footer {
 
 @keyframes slideInLeft {
     from {
-        opacity: 0
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+}
+
+body.dark-mode header {
+    background: linear-gradient(to right, #111, #333);
+}
+
+body.dark-mode footer {
+    background: #111;
+}
